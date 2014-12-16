@@ -16,15 +16,16 @@ class CacheCommand {
       String package,
       {
       @Flag(help: 'Install all matching versions.')
-      bool all,
+      bool all: false,
       @Option(help: 'Version constraint.')
       String version
   }) {
-    // Add to the cache.
+    var versions = all ? "all versions" : 'version "$version"';
+    print('Added $versions of package "$package" to the cache.');
   }
 
   @SubCommand(help: 'Reinstall cached packages.')
   repair() {
-    // Repair the cache.
+    print('Repaired the cache.');
   }
 }
